@@ -1,0 +1,866 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+
+    background: #111827;
+
+    color: #ffffff;
+
+    min-height: 100vh;
+}
+
+
+.container {
+    width: 90%;
+
+    max-width: 1100px;
+
+    margin: 0 auto;
+
+    padding: 50px 0;
+}
+
+
+/* ===================================== */
+/* HEADER */
+/* ===================================== */
+
+header {
+    text-align: center;
+
+    margin-bottom: 40px;
+}
+
+
+header h1 {
+    font-size: 42px;
+
+    margin-bottom: 10px;
+}
+
+
+header p {
+    color: #9ca3af;
+}
+
+
+/* ===================================== */
+/* PREFERÊNCIAS */
+/* ===================================== */
+
+.preferences {
+    background: #1f2937;
+
+    padding: 30px;
+
+    border-radius: 15px;
+
+    margin-bottom: 40px;
+}
+
+
+.preferences h2 {
+    margin-bottom: 30px;
+}
+
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+
+.form-group > label {
+    display: block;
+
+    margin-bottom: 10px;
+
+    font-weight: bold;
+}
+
+
+/* ===================================== */
+/* GÊNEROS */
+/* ===================================== */
+
+.genres {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 15px;
+}
+
+
+.genres label {
+    background: #374151;
+
+    padding: 10px 15px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+.genres label:hover {
+    background: #4b5563;
+}
+
+
+.genres input {
+    width: auto;
+
+    margin-right: 5px;
+}
+
+
+/* ===================================== */
+/* CAMPOS */
+/* ===================================== */
+
+select,
+input[type="number"] {
+    width: 100%;
+
+    padding: 12px;
+
+    border-radius: 8px;
+
+    border: none;
+
+    font-size: 16px;
+
+    outline: none;
+}
+
+
+/* ===================================== */
+/* BOTÃO PRINCIPAL */
+/* ===================================== */
+
+#recommendButton {
+    width: 100%;
+
+    padding: 15px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    background: #e50914;
+
+    color: white;
+
+    transition: 0.2s;
+}
+
+
+#recommendButton:hover {
+    background: #b20710;
+}
+
+
+#recommendButton:disabled {
+    opacity: 0.6;
+
+    cursor: wait;
+}
+
+
+/* ===================================== */
+/* RESULTADOS */
+/* ===================================== */
+
+.results {
+    margin-top: 30px;
+}
+
+
+.results h2 {
+    margin-bottom: 20px;
+}
+
+
+/* ===================================== */
+/* GRID */
+/* ===================================== */
+
+#moviesContainer {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(190px, 1fr)
+        );
+
+    gap: 22px;
+
+    background: transparent;
+
+    padding: 0;
+}
+
+
+/* ===================================== */
+/* CARD */
+/* ===================================== */
+
+.movie-card {
+    background: #1f2937;
+
+    border-radius: 14px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.35);
+
+    transition:
+        transform 0.25s,
+        box-shadow 0.25s;
+}
+
+
+.movie-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.45);
+}
+
+
+/* ===================================== */
+/* POSTER */
+/* ===================================== */
+
+.poster-container {
+    position: relative;
+
+    background: #111827;
+}
+
+
+.movie-poster {
+    width: 100%;
+
+    aspect-ratio: 2 / 3;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+
+/* ===================================== */
+/* COMPATIBILIDADE */
+/* ===================================== */
+
+.compatibility {
+    position: absolute;
+
+    bottom: 10px;
+
+    right: 10px;
+
+    background: #16a34a;
+
+    color: white;
+
+    padding: 6px 10px;
+
+    border-radius: 20px;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    box-shadow:
+        0 3px 10px rgba(0, 0, 0, 0.4);
+}
+
+
+/* ===================================== */
+/* INFORMAÇÕES */
+/* ===================================== */
+
+.movie-info {
+    padding: 15px;
+}
+
+
+.movie-title {
+    font-size: 18px;
+
+    margin-bottom: 10px;
+}
+
+
+.movie-metadata {
+    display: flex;
+
+    justify-content: space-between;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-bottom: 12px;
+
+    font-size: 13px;
+
+    color: #d1d5db;
+}
+
+
+.movie-rating {
+    color: #facc15;
+
+    font-weight: bold;
+}
+
+
+/* ===================================== */
+/* GÊNEROS */
+/* ===================================== */
+
+.movie-genres {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 5px;
+
+    margin-bottom: 15px;
+}
+
+
+.genre {
+    display: inline-block;
+
+    background: #374151;
+
+    color: #d1d5db;
+
+    padding: 5px 8px;
+
+    border-radius: 15px;
+
+    font-size: 11px;
+}
+
+
+/* ===================================== */
+/* BOTÃO DETALHES */
+/* ===================================== */
+
+.details-button {
+    width: 100%;
+
+    padding: 10px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #e50914;
+
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+.details-button:hover {
+    background: #b20710;
+}
+
+
+/* ===================================== */
+/* MENSAGEM */
+/* ===================================== */
+
+.empty-message {
+    color: #9ca3af;
+
+    text-align: center;
+
+    grid-column: 1 / -1;
+}
+
+
+/* ===================================== */
+/* MODAL */
+/* ===================================== */
+
+.modal {
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 1000;
+
+    background:
+        rgba(0, 0, 0, 0.82);
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+}
+
+
+.modal.active {
+    display: flex;
+}
+
+
+.modal-content {
+    position: relative;
+
+    width: 100%;
+
+    max-width: 900px;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    background: #1f2937;
+
+    border-radius: 18px;
+
+    padding: 30px;
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.6);
+}
+
+
+/* ===================================== */
+/* FECHAR */
+/* ===================================== */
+
+.modal-close {
+    position: absolute;
+
+    top: 12px;
+
+    right: 16px;
+
+    width: auto;
+
+    padding: 5px 10px;
+
+    background: transparent;
+
+    color: white;
+
+    border: none;
+
+    font-size: 32px;
+
+    cursor: pointer;
+
+    z-index: 10;
+}
+
+
+.modal-close:hover {
+    color: #e50914;
+}
+
+
+/* ===================================== */
+/* FILME NO MODAL */
+/* ===================================== */
+
+.modal-movie {
+    display: grid;
+
+    grid-template-columns:
+        220px 1fr;
+
+    gap: 28px;
+}
+
+
+.modal-poster {
+    width: 100%;
+
+    border-radius: 12px;
+
+    display: block;
+}
+
+
+.modal-info h2 {
+    font-size: 30px;
+
+    margin-bottom: 12px;
+
+    padding-right: 40px;
+}
+
+
+.modal-metadata {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 18px;
+
+    margin-bottom: 15px;
+
+    color: #d1d5db;
+}
+
+
+.modal-genres {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 7px;
+
+    margin-bottom: 20px;
+}
+
+
+/* ===================================== */
+/* SINOPSE */
+/* ===================================== */
+
+.modal-synopsis {
+    margin-bottom: 25px;
+}
+
+
+.modal-synopsis h3 {
+    margin-bottom: 8px;
+}
+
+
+.modal-synopsis p {
+    color: #d1d5db;
+
+    line-height: 1.6;
+}
+
+
+/* ===================================== */
+/* ONDE ASSISTIR */
+/* ===================================== */
+
+.watch-section {
+    border-top:
+        1px solid #374151;
+
+    padding-top: 20px;
+}
+
+
+.watch-section h3 {
+    margin-bottom: 18px;
+}
+
+
+.watch-type {
+    margin-bottom: 22px;
+}
+
+
+.watch-type strong {
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: #9ca3af;
+}
+
+
+/* ===================================== */
+/* LISTA DE PLATAFORMAS */
+/* ===================================== */
+
+.providers-list {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+
+/* ===================================== */
+/* CARD DA PLATAFORMA */
+/* ===================================== */
+
+.provider-card {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    background: #111827;
+
+    padding: 7px 10px;
+
+    border-radius: 10px;
+
+    border:
+        1px solid #374151;
+
+    font-size: 12px;
+
+    max-width: 180px;
+
+    min-height: 44px;
+
+    overflow: hidden;
+}
+
+
+/* ===================================== */
+/* LOGO DA PLATAFORMA */
+/* ===================================== */
+
+.provider-logo {
+    width: 28px !important;
+
+    height: 28px !important;
+
+    min-width: 28px;
+
+    max-width: 28px;
+
+    min-height: 28px;
+
+    max-height: 28px;
+
+    flex: 0 0 28px;
+
+    object-fit: contain;
+
+    display: block;
+
+    border-radius: 6px;
+}
+
+
+/*
+    GARANTE QUE QUALQUER IMG
+    DENTRO DO CARD NÃO FIQUE GIGANTE
+*/
+
+.provider-card img {
+    width: 28px !important;
+
+    height: 28px !important;
+
+    max-width: 28px !important;
+
+    max-height: 28px !important;
+
+    object-fit: contain;
+}
+
+
+/* ===================================== */
+/* NOME DA PLATAFORMA */
+/* ===================================== */
+
+.provider-name {
+    color: #ffffff;
+
+    font-size: 12px;
+
+    line-height: 1.2;
+
+    white-space: normal;
+
+    overflow-wrap: break-word;
+}
+
+
+/* ===================================== */
+/* NÃO DISPONÍVEL */
+/* ===================================== */
+
+.not-available {
+    color: #6b7280;
+
+    font-size: 13px;
+}
+
+
+/* ===================================== */
+/* LOADING STREAMING */
+/* ===================================== */
+
+.providers-loading {
+    color: #9ca3af;
+
+    font-size: 14px;
+
+    padding: 10px 0;
+}
+
+
+/* ===================================== */
+/* LINK */
+/* ===================================== */
+
+.watch-link {
+    display: inline-block;
+
+    margin-top: 10px;
+
+    color: #60a5fa;
+
+    text-decoration: none;
+
+    font-size: 13px;
+}
+
+
+.watch-link:hover {
+    text-decoration: underline;
+}
+
+
+/* ===================================== */
+/* ATRIBUIÇÃO */
+/* ===================================== */
+
+.watch-attribution {
+    margin-top: 18px;
+
+    font-size: 11px;
+
+    color: #6b7280;
+
+    line-height: 1.5;
+}
+
+
+/* ===================================== */
+/* RESPONSIVO */
+/* ===================================== */
+
+@media (
+    max-width: 700px
+) {
+
+    .container {
+        width: 94%;
+    }
+
+
+    header h1 {
+        font-size: 34px;
+    }
+
+
+    .preferences {
+        padding: 20px;
+    }
+
+
+    #moviesContainer {
+        grid-template-columns:
+            repeat(
+                auto-fit,
+                minmax(160px, 1fr)
+            );
+    }
+
+
+    .modal-movie {
+        grid-template-columns: 1fr;
+    }
+
+
+    .modal-poster {
+        max-width: 220px;
+
+        margin: 0 auto;
+    }
+
+
+    .modal-info h2 {
+        text-align: center;
+
+        padding-right: 0;
+    }
+
+
+    .modal-metadata {
+        justify-content: center;
+    }
+
+
+    .modal-genres {
+        justify-content: center;
+    }
+
+
+    .provider-card {
+        max-width: 150px;
+    }
+
+
+    .provider-logo {
+        width: 26px !important;
+
+        height: 26px !important;
+
+        min-width: 26px;
+
+        max-width: 26px;
+
+        min-height: 26px;
+
+        max-height: 26px;
+
+        flex-basis: 26px;
+    }
+
+
+    .provider-card img {
+        width: 26px !important;
+
+        height: 26px !important;
+
+        max-width: 26px !important;
+
+        max-height: 26px !important;
+    }
+
+}

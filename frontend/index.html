@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>MovieMatch</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+<body>
+
+    <main class="container">
+
+        <header>
+
+            <h1>
+                🎬 MovieMatch
+            </h1>
+
+            <p>
+                Descubra filmes que realmente combinam com você.
+            </p>
+
+        </header>
+
+
+        <section class="preferences">
+
+            <h2>
+                O que você quer assistir hoje?
+            </h2>
+
+
+            <!-- GÊNEROS -->
+
+            <div class="form-group">
+
+                <label>
+                    Quais gêneros você gostaria de assistir?
+                </label>
+
+                <div class="genres">
+
+                    <label>
+                        <input type="checkbox" value="acao">
+                        Ação
+                    </label>
+
+                    <label>
+                        <input type="checkbox" value="aventura">
+                        Aventura
+                    </label>
+
+                    <label>
+                        <input type="checkbox" value="animacao">
+                        Animação
+                    </label>
+
+                    <label>
+                        <input type="checkbox" value="comedia">
+                        Comédia
+                    </label>
+
+                    <label>
+                        <input type="checkbox" value="crime">
+                        Crime
+                    </label>
+
+                    <label>
+                        <input type="checkbox" value="drama">
+                        Drama
+                    </label>
+
+                    <label>
+                        <input type="checkbox" value="ficcao">
+                        Ficção Científica
+                    </label>
+
+                    <label>
+                        <input type="checkbox" value="misterio">
+                        Mistério
+                    </label>
+
+                    <label>
+                        <input type="checkbox" value="romance">
+                        Romance
+                    </label>
+
+                    <label>
+                        <input type="checkbox" value="terror">
+                        Terror
+                    </label>
+
+                    <label>
+                        <input type="checkbox" value="thriller">
+                        Thriller
+                    </label>
+
+                </div>
+
+            </div>
+
+
+            <!-- HUMOR -->
+
+            <div class="form-group">
+
+                <label for="mood">
+                    O que você procura sentir?
+                </label>
+
+                <select id="mood">
+
+                    <option value="">
+                        Escolha uma opção
+                    </option>
+
+                    <option value="rir">
+                        😂 Quero rir
+                    </option>
+
+                    <option value="pensar">
+                        🧠 Quero algo que me faça pensar
+                    </option>
+
+                    <option value="adrenalina">
+                        🔥 Quero adrenalina
+                    </option>
+
+                    <option value="emocionar">
+                        😢 Quero me emocionar
+                    </option>
+
+                    <option value="tensao">
+                        😨 Quero tensão
+                    </option>
+
+                    <option value="leve">
+                        😌 Quero algo leve
+                    </option>
+
+                    <option value="surpreender">
+                        🤯 Quero ser surpreendido
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- NOTA -->
+
+            <div class="form-row">
+
+                <div class="form-group">
+
+                    <label for="rating">
+                        Nota mínima
+                    </label>
+
+                    <select id="rating">
+
+                        <option value="5">
+                            5+
+                        </option>
+
+                        <option value="6">
+                            6+
+                        </option>
+
+                        <option
+                            value="7"
+                            selected
+                        >
+                            7+
+                        </option>
+
+                        <option value="7.5">
+                            7.5+
+                        </option>
+
+                        <option value="8">
+                            8+
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- ANO -->
+
+                <div class="form-group">
+
+                    <label for="yearMin">
+                        Filmes a partir de
+                    </label>
+
+                    <input
+                        type="number"
+                        id="yearMin"
+                        value="2000"
+                        min="1900"
+                        max="2030"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- AVANÇADO -->
+
+            <button
+                type="button"
+                id="advancedToggle"
+                class="advanced-toggle"
+            >
+                ⚙️ Mostrar opções avançadas
+            </button>
+
+
+            <div
+                id="advancedPanel"
+                class="advanced-panel"
+                hidden
+            >
+
+                <h3>
+                    Personalização avançada
+                </h3>
+
+
+                <!-- FILME REFERÊNCIA -->
+
+                <div class="form-group">
+
+                    <label for="referenceMovie">
+                        Filme de referência
+                    </label>
+
+                    <input
+                        type="text"
+                        id="referenceMovie"
+                        placeholder="Ex.: Interestelar, Matrix, O Poderoso Chefão..."
+                    >
+
+                    <small>
+                        O sistema vai procurar filmes semelhantes ao título informado.
+                    </small>
+
+                </div>
+
+
+                <div class="form-row">
+
+                    <!-- ANO MÁXIMO -->
+
+                    <div class="form-group">
+
+                        <label for="yearMax">
+                            Ano máximo
+                        </label>
+
+                        <input
+                            type="number"
+                            id="yearMax"
+                            placeholder="Sem limite"
+                            min="1900"
+                            max="2030"
+                        >
+
+                    </div>
+
+
+                    <!-- DURAÇÃO -->
+
+                    <div class="form-group">
+
+                        <label for="runtimeMax">
+                            Duração máxima
+                        </label>
+
+                        <select id="runtimeMax">
+
+                            <option value="">
+                                Qualquer duração
+                            </option>
+
+                            <option value="90">
+                                Até 1h30
+                            </option>
+
+                            <option value="120">
+                                Até 2h
+                            </option>
+
+                            <option value="150">
+                                Até 2h30
+                            </option>
+
+                            <option value="180">
+                                Até 3h
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-row">
+
+                    <!-- IDIOMA -->
+
+                    <div class="form-group">
+
+                        <label for="language">
+                            Idioma original preferido
+                        </label>
+
+                        <select id="language">
+
+                            <option value="any">
+                                Não importa
+                            </option>
+
+                            <option value="pt">
+                                Português
+                            </option>
+
+                            <option value="en">
+                                Inglês
+                            </option>
+
+                            <option value="es">
+                                Espanhol
+                            </option>
+
+                            <option value="fr">
+                                Francês
+                            </option>
+
+                            <option value="it">
+                                Italiano
+                            </option>
+
+                            <option value="ja">
+                                Japonês
+                            </option>
+
+                            <option value="ko">
+                                Coreano
+                            </option>
+
+                            <option value="de">
+                                Alemão
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- POPULARIDADE -->
+
+                    <div class="form-group">
+
+                        <label for="popularityMode">
+                            Tipo de descoberta
+                        </label>
+
+                        <select id="popularityMode">
+
+                            <option value="balanced">
+                                ⚖️ Equilibrado
+                            </option>
+
+                            <option value="popular">
+                                🔥 Filmes conhecidos
+                            </option>
+
+                            <option value="hidden">
+                                💎 Joias escondidas
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ERA -->
+
+                <div class="form-group">
+
+                    <label for="eraPreference">
+                        Época preferida
+                    </label>
+
+                    <select id="eraPreference">
+
+                        <option value="any">
+                            Não importa
+                        </option>
+
+                        <option value="recent">
+                            Lançamentos recentes
+                        </option>
+
+                        <option value="2010s">
+                            Anos 2010
+                        </option>
+
+                        <option value="2000s">
+                            Anos 2000
+                        </option>
+
+                        <option value="classics">
+                            Clássicos
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- EVITAR -->
+
+                <div class="form-group">
+
+                    <label>
+                        Gêneros que quero evitar
+                    </label>
+
+                    <div class="avoid-genres">
+
+                        <label>
+                            <input type="checkbox" value="terror">
+                            Terror
+                        </label>
+
+                        <label>
+                            <input type="checkbox" value="romance">
+                            Romance
+                        </label>
+
+                        <label>
+                            <input type="checkbox" value="comedia">
+                            Comédia
+                        </label>
+
+                        <label>
+                            <input type="checkbox" value="crime">
+                            Crime
+                        </label>
+
+                        <label>
+                            <input type="checkbox" value="documentario">
+                            Documentário
+                        </label>
+
+                        <label>
+                            <input type="checkbox" value="familia">
+                            Família
+                        </label>
+
+                        <label>
+                            <input type="checkbox" value="fantasia">
+                            Fantasia
+                        </label>
+
+                    </div>
+
+                </div>
+
+
+                <!-- QUANTIDADE -->
+
+                <div class="form-group">
+
+                    <label for="resultsLimit">
+                        Quantidade de recomendações
+                    </label>
+
+                    <select id="resultsLimit">
+
+                        <option value="10">
+                            10 filmes
+                        </option>
+
+                        <option value="15">
+                            15 filmes
+                        </option>
+
+                        <option
+                            value="20"
+                            selected
+                        >
+                            20 filmes
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <button id="recommendButton">
+                Encontrar filmes para mim
+            </button>
+
+        </section>
+
+
+        <section class="results">
+
+            <h2>
+                Recomendações para você
+            </h2>
+
+            <div
+                id="recommendationSummary"
+                class="recommendation-summary"
+            >
+            </div>
+
+            <div id="moviesContainer">
+
+                <p class="empty-message">
+                    Suas recomendações aparecerão aqui.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- POPUP -->
+
+    <div
+        id="movieModal"
+        class="modal"
+    >
+
+        <div class="modal-content">
+
+            <button
+                id="closeModal"
+                class="modal-close"
+                aria-label="Fechar"
+            >
+                &times;
+            </button>
+
+            <div id="modalMovieContent">
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="app.js"></script>
+
+</body>
+
+</html>
