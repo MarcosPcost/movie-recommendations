@@ -4,7 +4,7 @@ MovieMatch é um projeto que comecei para praticar consumo de API e integração
 
 A ideia é simples: o usuário escolhe algumas preferências, como gêneros, humor, nota mínima e período, e a aplicação tenta recomendar filmes que tenham mais relação com essas escolhas.
 
-Para buscar os dados dos filmes, estou usando a API do TMDB
+Para buscar os dados dos filmes, estou usando a API do TMDB.
 
 ---
 
